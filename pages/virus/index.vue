@@ -98,7 +98,6 @@ export default {
 
   created() {
     this.renderMarkers()
-    this.initEcharts()
   }
 }
 </script>
