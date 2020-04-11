@@ -2,6 +2,9 @@
   <div class="click-counter">
     <div> {{ fullName }}</div>
     <button type="button" @click="clickHandler" :class="['button', colorSelector]">Click counts {{ clickCounts }}</button>
+    <div v-for="(event, index) in clickEvents" :key="index">
+      Button has been clecked {{event.value}} at {{event.time}}
+    </div>
   </div>
 </template>
 <script>
@@ -26,6 +29,11 @@ export default {
     clickHandler(){
       this.clickCounts += 1
       console.log(this.clickCounts)
+      const eventData = {
+        time: new Date(Date.now()),
+        value: this.clickCounts
+      }
+      this.clickEvents.push(eventData);
     }
   },
 
