@@ -24,6 +24,7 @@
     "leaflet": "^1.6.0",
     "leaflet-echarts": "^0.2.1",
     "leaflet-heatmap": "^1.0.0",
+    "moment": "^2.24.0",
     "nuxt": "^2.0.0",
     "vue2-leaflet": "^2.5.2"
   },

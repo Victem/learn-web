@@ -3,17 +3,30 @@
     <div> {{ fullName }}</div>
     <button type="button" @click="clickHandler" :class="['button', colorSelector]">Click counts {{ clickCounts }}</button>
     <div v-for="(event, index) in clickEvents" :key="index">
-      Button has been clecked {{event.value}} at {{event.time}}
+      <div v-if="index < 10" class="event-item">
+        Button has been clecked {{event.value}} at {{event.time | date('HH:mm:ss')}} <el-button type="text" @click="removeEvent(event)" icon="el-icon-delete-solid"></el-button>
+      </div>
     </div>
+    <div v-if="clickEvents.length > 10">
+      And another {{clickCounts - 10}}
+    </div>
+<!--      <items-list :items="clickEvents">
+      <template v-slot:default="item">
+       Button has been clicked {{item.value}} at {{ item.time | date('HH:mm:ss')}} <el-button type="text" @click="removeEvent(item)" icon="el-icon-delete-solid"></el-button>
+      </template>
+     </items-list> -->
   </div>
 </template>
 <script>
+
+import moment from 'moment'
+import ItemsList from './ItemsList'
 export default {
   name: 'click-counter',
-/*   action: function() {
-
-  } */
-  data: function() {
+  components: {
+    ItemsList
+  },
+  data() {
     return {
       clickCounts: 0,
       clickEvents: [],
@@ -34,6 +47,10 @@ export default {
         value: this.clickCounts
       }
       this.clickEvents.push(eventData);
+    },
+    removeEvent(event) {
+      this.clickEvents = this.clickEvents.filter(e=> e.value !== event.value)
+      this.clickCounts -= 1;
     }
   },
 
@@ -47,6 +64,19 @@ export default {
     },
     fullName() {
       return `${this.user.name} ${this.user.lastName}`
+    }
+  },
+
+  filters: {
+    date(value, format) {
+      if(!moment.isDate(value)){
+        return ''
+      }
+      if(format) {
+        return moment(value).format(format)
+      } else {
+        return moment(value).format('DD.MM.YYYY')
+      }
     }
   }
 }
