@@ -25,17 +25,19 @@
         </a>
         <nuxt-link :to="{name: 'virus'}">COVID-19 stats</nuxt-link>
       </div>
-      <el-button>click</el-button>
+      <ClickCounter></ClickCounter>
+      <click-counter></click-counter>
     </div>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
-
+import ClickCounter from '~/components/ClickCounter'
 export default {
   components: {
-    Logo
+    Logo,
+    ClickCounter
   }
 }
 </script>
