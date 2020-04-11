@@ -23,7 +23,9 @@
         >
           GitHub
         </a>
+        <nuxt-link :to="{name: 'virus'}">COVID-19 stats</nuxt-link>
       </div>
+      <el-button>click</el-button>
     </div>
   </div>
 </template>
