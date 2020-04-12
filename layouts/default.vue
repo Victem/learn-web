@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="menu">
+      <nuxt-link :to="{name: 'index'}"> Home</nuxt-link>
+      <nuxt-link :to="{name: 'virus'}"> Virus</nuxt-link>
+    </div>
     <nuxt />
   </div>
 </template>
