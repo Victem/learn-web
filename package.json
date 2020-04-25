@@ -26,7 +26,10 @@
     "leaflet-echarts3": "^0.1.0",
     "leaflet-heatmap": "^1.0.0",
     "moment": "^2.24.0",
+    "mssql": "^6.2.0",
     "nuxt": "^2.0.0",
+    "pg": "^8.0.3",
+    "tedious": "^8.2.0",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
